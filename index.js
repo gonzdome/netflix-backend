@@ -1,13 +1,20 @@
 const express = require('express');
-// busca o express em node_modules
+// search the express in the node_modules
+
 const app = express();
-// chamando a const express e executando/instanciando e guardando a const app
+// calls the express, executes/instances and put it inside a const named app
+
+const morgan = require('morgan');
+// requision monitoring dependency
+
+app.use(morgan('dev'));
 
 app.get('/teste', (req, res) => {
-  // regra de negócio
   res.json();
 });
+// test endpoint
 
 app.listen(3000, () => {
   console.log('Server on!');
 });
+// server connection to the port: 3000
