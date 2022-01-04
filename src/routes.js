@@ -17,4 +17,6 @@ routes.get('/:id', (req, res) => {
   res.json({ mensagem: `Mostrar apenas o registro de ID: '${id}'` });
 });
 // endpoint to get a single registration using the ID as a parameter
+
 module.exports = routes;
+// export routes
