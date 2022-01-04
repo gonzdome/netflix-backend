@@ -1,20 +1,22 @@
 const express = require('express');
 // search the express in the node_modules
+const routes = require('./routes');
 
-const app = express();
-// calls the express, executes/instances and put it inside a const named app
+class App {
+  constructor() {
+    this.server = express();
+    // calls the express, executes/instances and put it inside a const named app
+    this.routes();
+    this.middlewares();
+  }
 
-const morgan = require('morgan');
-// requision monitoring dependency
+  routes() {
+    this.server.use(routes);
+  }
 
-app.use(morgan('dev'));
+  middlewares() {
+    this.server.use(express.json());
+  }
+}
 
-app.get('/teste', (req, res) => {
-  res.json();
-});
-// test endpoint
-
-app.listen(3000, () => {
-  console.log('Server on!');
-});
-// server connection to the port: 3000
+module.exports = new App().server;
