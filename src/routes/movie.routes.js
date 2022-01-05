@@ -21,7 +21,7 @@ routes.get('/:id', (req, res) => {
 });
 // endpoint to get a single register using the ID as a parameter
 
-routes.post('/create', MovieController.store);
+routes.post('/', MovieController.store);
 // endpoint to create new register
 
 routes.put('/:id', (req, res) => {
