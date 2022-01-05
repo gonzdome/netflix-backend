@@ -1,17 +1,19 @@
 const express = require('express');
 // search the express in the node_modules
-const routes = require('./routes');
+const bodyParser = require('body-parser');
+const routes = require('./routes/movie.routes');
+
+require('./database');
 
 class App {
   constructor() {
     this.server = express();
-    // calls the express, executes/instances and put it inside a const named app
-    this.routes();
     this.middlewares();
+    this.routes();
   }
 
   routes() {
-    this.server.use(routes);
+    this.server.use('/', routes);
   }
 
   middlewares() {
