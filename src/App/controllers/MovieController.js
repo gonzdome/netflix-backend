@@ -42,6 +42,16 @@ class MovieController {
       return res.json({ error: true, message: err.message });
     }
   }
+
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const movieUpdate = await Movie.findByIdAndDelete(id);
+      return res.json(movieUpdate);
+    } catch (err) {
+      return res.json({ error: true, message: err.message });
+    }
+  }
 }
 
 module.exports = new MovieController();

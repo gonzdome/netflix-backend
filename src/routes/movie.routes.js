@@ -21,10 +21,7 @@ routes.post('/', MovieController.store);
 routes.put('/:id', MovieController.update);
 // endpoint to update a register
 
-routes.delete('/:id', (req, res) => {
-  const id = req.params;
-  res.json({ mensagem: `Deletar somente o registo de ID: ${id}` });
-});
+routes.delete('/:id', MovieController.delete);
 
 module.exports = routes;
 // export routes
