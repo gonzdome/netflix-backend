@@ -21,6 +21,17 @@ class MovieController {
       return res.json({ error: true, message: err.message });
     }
   }
+
+  async catch(req, res) {
+    try {
+      const { id } = req.params;
+      const single_movie = await Movie.findById(id);
+      console.log(single_movie);
+      return res.json(single_movie);
+    } catch (err) {
+      return res.json({ error: true, message: err.message });
+    }
+  }
 }
 
 module.exports = new MovieController();

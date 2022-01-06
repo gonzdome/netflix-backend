@@ -12,10 +12,7 @@ routes.use(morgan('dev'));
 routes.get('/', MovieController.index);
 // endpoint to get all registrations
 
-routes.get('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ mensagem: `Mostrar apenas o registro de ID: '${id}'` });
-});
+routes.get('/:id', MovieController.catch);
 // endpoint to get a single register using the ID as a parameter
 
 routes.post('/', MovieController.store);
