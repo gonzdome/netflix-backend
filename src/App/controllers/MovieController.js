@@ -26,8 +26,18 @@ class MovieController {
     try {
       const { id } = req.params;
       const single_movie = await Movie.findById(id);
-      console.log(single_movie);
       return res.json(single_movie);
+    } catch (err) {
+      return res.json({ error: true, message: err.message });
+    }
+  }
+
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      const movie = req.body;
+      const movieUpdate = await Movie.findByIdAndUpdate(id, movie);
+      return res.json(movieUpdate);
     } catch (err) {
       return res.json({ error: true, message: err.message });
     }

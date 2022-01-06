@@ -18,10 +18,7 @@ routes.get('/:id', MovieController.catch);
 routes.post('/', MovieController.store);
 // endpoint to create new register
 
-routes.put('/:id', (req, res) => {
-  const id = req.params;
-  res.json({ mensagem: `Atualizar somente o registo de ID: ${id}` });
-});
+routes.put('/:id', MovieController.update);
 // endpoint to update a register
 
 routes.delete('/:id', (req, res) => {
