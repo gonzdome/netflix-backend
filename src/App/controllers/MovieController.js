@@ -12,10 +12,14 @@ class MovieController {
   }
 
   async index(req, res) {
-    const movie_list = await Movie.find({
-      attributes: ['id', 'title', 'actors', 'year', 'details', 'awards'],
-    });
-    return res.json(movie_list);
+    try {
+      const movie_list = await Movie.find({
+        attributes: ['id', 'title', 'actors', 'year', 'details', 'awards'],
+      });
+      return res.json(movie_list);
+    } catch (err) {
+      return res.json({ error: true, message: err.message });
+    }
   }
 }
 
