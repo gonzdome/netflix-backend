@@ -2,7 +2,6 @@ const morgan = require('morgan');
 // dependency to watch requisitions and send info to the log
 const { Router } = require('express');
 
-// const MovieController = require('../App/controllers/MovieController');
 const MovieController = require('../App/controllers/MovieController');
 
 const routes = new Router();
@@ -10,9 +9,7 @@ const routes = new Router();
 routes.use(morgan('dev'));
 // set the morgan dependency to only work in dev-mode
 
-routes.get('/', (req, res) => {
-  res.json({ mensagem: 'Mostrar todos os registros' });
-});
+routes.get('/', MovieController.index);
 // endpoint to get all registrations
 
 routes.get('/:id', (req, res) => {
