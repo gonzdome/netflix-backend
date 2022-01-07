@@ -5,9 +5,9 @@ class MovieController {
     try {
       const movie = req.body;
       const response = await new Movie(movie).save();
-      res.json({ error: false, message: response });
+      return res.json({ error: false, message: response });
     } catch (err) {
-      res.json({ error: true, message: err.message });
+      return res.json({ error: true, message: err.message });
     }
   }
 
@@ -16,7 +16,7 @@ class MovieController {
       const movie_list = await Movie.find({
         attributes: ['id', 'title', 'actors', 'year', 'details', 'awards'],
       });
-      return res.json(movie_list);
+      return res.json({ error: false, movie_list });
     } catch (err) {
       return res.json({ error: true, message: err.message });
     }
@@ -26,7 +26,7 @@ class MovieController {
     try {
       const { id } = req.params;
       const single_movie = await Movie.findById(id);
-      return res.json(single_movie);
+      return res.json({ error: false, single_movie });
     } catch (err) {
       return res.json({ error: true, message: err.message });
     }
@@ -37,7 +37,7 @@ class MovieController {
       const { id } = req.params;
       const movie = req.body;
       const movieUpdate = await Movie.findByIdAndUpdate(id, movie);
-      return res.json(movieUpdate);
+      return res.json({ error: false, movieUpdate });
     } catch (err) {
       return res.json({ error: true, message: err.message });
     }
