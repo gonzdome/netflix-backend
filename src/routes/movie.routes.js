@@ -1,4 +1,3 @@
-// dependency to watch requisitions and send info to the log
 const { Router } = require('express');
 
 const MovieController = require('../App/controllers/MovieController');
