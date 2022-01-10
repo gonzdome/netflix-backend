@@ -2,21 +2,21 @@ const { Router } = require('express');
 
 const MovieController = require('../App/controllers/MovieController');
 
-const movieRoutes = new Router();
+const routes = new Router();
 
-movieRoutes.get('/', MovieController.index);
+routes.get('/', MovieController.index);
 // endpoint to get all registrations
 
-movieRoutes.get('/:id', MovieController.catch);
+routes.get('/:id', MovieController.catch);
 // endpoint to get a single register using the ID as a parameter
 
-movieRoutes.post('/', MovieController.store);
+routes.post('/', MovieController.store);
 // endpoint to create new register
 
-movieRoutes.put('/:id', MovieController.update);
+routes.put('/:id', MovieController.update);
 // endpoint to update a register
 
-movieRoutes.delete('/:id', MovieController.delete);
+routes.delete('/:id', MovieController.delete);
 
-module.exports = movieRoutes;
+module.exports = routes;
 // export routes
