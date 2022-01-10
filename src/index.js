@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 // search the express in the node_modules
 const routes = require('./routes/movie.routes');
 
@@ -17,6 +18,7 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
+    this.server.use(cors());
   }
 }
 
