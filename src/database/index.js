@@ -8,6 +8,7 @@ class Index {
   mongo() {
     this.mongoConnection = mongoose.connect(
       'mongodb://localhost:27017/netflix',
+      // 'mongodb+srv://gabriel:password@netflix.ncstc.mongodb.net/netflix',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

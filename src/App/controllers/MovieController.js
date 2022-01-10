@@ -1,4 +1,5 @@
 const Movie = require('../models/Movie');
+const Season = require('../models/Season');
 
 class MovieController {
   async store(req, res) {
@@ -17,6 +18,24 @@ class MovieController {
         attributes: ['id', 'title', 'actors', 'year', 'details', 'awards'],
       });
       return res.json({ error: false, movie_list });
+    } catch (err) {
+      return res.json({ error: true, message: err.message });
+    }
+  }
+
+  async home(req, res) {
+    try {
+      const movies = await Movie.find({});
+      const finalMovies = [];
+      for (const movie of movies) {
+        const season = await Season.find({
+          movie_id: movie._id,
+        });
+        const newMovie = { ...movie._doc, season };
+
+        finalMovies.push(newMovie);
+      }
+      return res.json();
     } catch (err) {
       return res.json({ error: true, message: err.message });
     }
