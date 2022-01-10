@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+// morgan send info of the requisitions to the log
 const morgan = require('morgan');
 // search the express in the node_modules
 const routes = require('./routes/movie.routes');
