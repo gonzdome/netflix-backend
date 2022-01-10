@@ -3,7 +3,8 @@ const cors = require('cors');
 // morgan send info of the requisitions to the log
 const morgan = require('morgan');
 // search the express in the node_modules
-const routes = require('./routes/movie.routes');
+const movieRoutes = require('./routes/movie.routes');
+// const userRoutes = require('./routes/user.routes');
 
 require('./database');
 
@@ -15,7 +16,8 @@ class App {
   }
 
   routes() {
-    this.server.use('/', routes);
+    this.server.use('/movie', movieRoutes);
+    // this.server.use('/user', userRoutes);
   }
 
   middlewares() {
