@@ -10,6 +10,7 @@ module.exports = {
     ecmaVersion: 13,
   },
   rules: {
+    'prefer-const': 'off',
     'no-underscore-dangle': 'off',
     'no-await-in-loop': 'off',
     'no-console': 'off',
