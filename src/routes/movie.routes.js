@@ -10,8 +10,6 @@ routes.get('/', MovieController.index);
 routes.get('/:id', MovieController.catch);
 // endpoint to get a single register using the ID as a parameter
 
-routes.get('/home', MovieController.home);
-
 routes.post('/', MovieController.store);
 // endpoint to create new register
 
