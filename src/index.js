@@ -5,6 +5,8 @@ const morgan = require('morgan');
 // search the express in the node_modules
 const movieRoutes = require('./routes/movie.routes');
 const userRoutes = require('./routes/user.routes');
+const homeRoutes = require('./routes/home.routes');
+const episodeRoutes = require('./routes/episode.routes');
 
 require('./database');
 
@@ -18,6 +20,8 @@ class App {
   routes() {
     this.server.use('/movie', movieRoutes);
     this.server.use('/user', userRoutes);
+    this.server.use('/home', homeRoutes);
+    this.server.use('/season', episodeRoutes);
   }
 
   middlewares() {
