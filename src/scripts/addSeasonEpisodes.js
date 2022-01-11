@@ -22,7 +22,7 @@ const addSeasonEpisodes = async () => {
         for (let x = 1; x <= numEpisodes; x += 1) {
           console.log(`New episode, ${x} of ${numSeason}`);
           await new Episode({
-            season: season._id,
+            season_id: season._id,
             title: `Episode ${x}`,
             number: x,
             description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta tortor vitae tortor varius, in ullamcorper lorem bibendum. Morbi nec.`,
